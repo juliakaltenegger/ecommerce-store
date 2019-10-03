@@ -1,4 +1,4 @@
-export default [
+const products = [
   {
     name: "Salsa Picante",
     price: "12,90",
@@ -23,3 +23,11 @@ export default [
     photo: "/static/salsa-brava.jpg",
   },
 ];
+
+export function getProductById(id) {
+  return products.find(product => product.id === id);
+}
+
+export default function getAllProducts() {
+  return products;
+}

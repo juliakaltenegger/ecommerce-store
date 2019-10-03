@@ -58,7 +58,7 @@ const Nav = () => (
         </Link>
       </li>
       <li>
-        <Link href="/">
+        <Link href="/#products">
           <a>Salsas</a>
         </Link>
       </li>

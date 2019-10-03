@@ -2,8 +2,10 @@ import React from "react";
 import Head from "next/head";
 import Nav from "../components/nav";
 import styled from "styled-components";
-import productDetails from "../product-details";
+import getAllProducts from "../product-details";
 import Link from "next/link";
+
+const allProducts = getAllProducts();
 
 const IntroSection = styled.div`
   text-align: center;
@@ -16,16 +18,26 @@ const IntroSection = styled.div`
 const H1 = styled.h1`
   display: inline-block;
 `;
-
+const ProductSection = styled.div`
+  padding-top: 80px;
+`;
 const ProductImg = styled.img`
   width: 200px;
+`;
+const ProductContainerBig = styled.div`
+  display: grid;
 `;
 
 const ProductContainer = styled.div`
   display: flex;
   flex-direction: column;
+  width: 220px;
+  align-content: center;
+  align-items: center;
   border-color: #000;
   border-style: outset;
+  width: 220px;
+  height: 220px;
   padding: 20px;
   margin: 20px;
 `;
@@ -56,17 +68,22 @@ const App = () => (
 
       <div>
         {" "}
-        {productDetails.map(product => (
-          <ProductContainer>
-            <Link href="/products/[id]" as={`/products/${product.id}`}>
-              <a>
-                {" "}
-                <ProductImg src={product.photo} />
-              </a>
-            </Link>
-            {product.name} {product.price} {product.spicyLevel}
-          </ProductContainer>
-        ))}
+        <ProductSection id="products">
+          <H3>Produkte</H3>
+          {allProducts.map(product => (
+            <ProductContainerBig>
+              <ProductContainer>
+                <Link href="/products/[id]" as={`/products/${product.id}`}>
+                  <a>
+                    {" "}
+                    <ProductImg src={product.photo} />
+                  </a>
+                </Link>
+                {product.name} {product.price} {product.spicyLevel}
+              </ProductContainer>
+            </ProductContainerBig>
+          ))}
+        </ProductSection>
       </div>
       <div>
         <H3>Rezepte</H3>

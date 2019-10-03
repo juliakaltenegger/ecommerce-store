@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`gets a product by id from the database 1`] = `
+Object {
+  "id": "0",
+  "name": "Salsa Picante",
+  "photo": "/static/salsa-picante.jpg",
+  "price": "12,90",
+  "spicyLevel": "medium",
+}
+`;
