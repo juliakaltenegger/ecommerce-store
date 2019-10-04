@@ -8,11 +8,11 @@ import React, { useState } from "react";
 import Nav from "../../components/nav";
 import styled from "styled-components";
 
-function turnObjectIntoString(obj) {
-  return JSON.stringify(obj);
-}
-
 const allProducts = getAllProducts();
+
+const SingleProduct = styled.div`
+  margin-top: 200px;
+`;
 
 const Product = props => {
   const router = useRouter();
@@ -25,20 +25,15 @@ const Product = props => {
 
   const arr = JSON.parse(props.cookies.productsInCart || "[]");
 
-  const combineCookies = arr.push();
-
   const [quantity, setQuantity] = useState(1);
   const handleSubmit = event => {
     event.preventDefault();
-    setQuantity(quantity);
+    setQuantity();
   };
+
   const handleChange = event => {
     setQuantity(event.target.value);
   };
-
-  const SingleProduct = styled.div`
-    margin-top: 200px;
-  `;
 
   return (
     <>
@@ -61,17 +56,14 @@ const Product = props => {
             ></input>
             <button
               onClick={() => {
-                cookie.set(
-                  "productsInCart",
-                  turnObjectIntoString([
-                    {
-                      count: quantity,
-                      name: individualProductDetails.name,
-                      price: individualProductDetails.price,
-                    },
-                  ]),
-                  combineCookies,
-                );
+                const object = {
+                  count: quantity,
+                  name: individualProductDetails.name,
+                  price: individualProductDetails.price,
+                };
+                arr.push(object);
+
+                cookie.set("productsInCart", JSON.stringify(arr));
                 location.reload();
               }}
             >
@@ -80,14 +72,12 @@ const Product = props => {
           </form>
           <br />
           myCookie: {props.cookies.productsInCart}
-          Cookie get Funktion: {combineCookies}
         </div>
         <Link href="/#products">
           <a>
             <button>Back to Products</button>
           </a>
         </Link>
-        {console.log(arr)}
       </SingleProduct>
     </>
   );

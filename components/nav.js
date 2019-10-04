@@ -15,24 +15,31 @@ const NavContainer = styled.nav`
   border-color: #000;
   border-bottom: black;
   border-style: outset;
-`;
-const LogoContainer = styled.div`
-  margin-right: 100px;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-bottom-width: 2.3px;
 `;
 
 const Logo = styled.img`
-  width: 50px;
+  width: 100px;
+  overflow: hidden;
+  position: fixed;
+  top: 0.3px;
+  left: 10px;
 `;
 
 const StyledUl = styled.ul`
   list-style-type: none;
   display: flex;
+  white-space: nowrap;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: space-evenly;
   text-decoration: none;
-  align-items: center;
 
   & a {
+    text-decoration: none;
+    color: #000;
     text-decoration: none;
     color: #000;
   }
@@ -45,15 +52,15 @@ const ImgCart = styled.img`
 const Nav = () => (
   <NavContainer>
     <StyledUl>
-      <LogoContainer>
-        <Logo src="/static/Group.svg" />
+      <Link href="/">
+        <a>
+          <Logo src="/static/logo-with-background-real-thick.svg" />
+          Salsa Bliblablu
+        </a>
+      </Link>
 
-        <Link href="/">
-          <a>Salsa Bliblablu</a>
-        </Link>
-      </LogoContainer>
       <li>
-        <Link href="/#ueber-uns">
+        <Link href="/#about">
           <a>Über uns</a>
         </Link>
       </li>
@@ -63,12 +70,12 @@ const Nav = () => (
         </Link>
       </li>
       <li>
-        <Link href="/">
+        <Link href="/#recipes">
           <a>Rezepte</a>
         </Link>
       </li>
       <li>
-        <Link href="/">
+        <Link href="/#mexico">
           <a>Mexiko als Reisedestination</a>
         </Link>
       </li>
