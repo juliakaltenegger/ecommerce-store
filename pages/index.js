@@ -17,6 +17,7 @@ const ProductNamePrice = styled.div`
   font-size: 12px;
   display: flex;
   flex-direction: column;
+  //not working
 `;
 
 const IntroSection = styled.div`
@@ -32,6 +33,7 @@ const H1 = styled.h1`
 `;
 const ProductSection = styled.div`
   padding-top: 80px;
+  margin-left: 47px;
 `;
 const ProductImg = styled.img`
   height: 140px;
@@ -50,8 +52,8 @@ const ProductContainer = styled.div`
   border-style: outset;
   width: 170px;
   height: 170px;
-  padding: 20px;
-  margin: 20px;
+  padding: 10px;
+  margin: 2px;
 `;
 
 const H3 = styled.h3`
@@ -90,6 +92,7 @@ const App = () => (
             ea commodo consequat.
           </p>
         </IntroSection>
+        <hr />
 
         <div>
           {" "}
@@ -112,6 +115,8 @@ const App = () => (
             ))}
           </ProductSection>
         </div>
+        <hr />
+
         <div>
           <RecipeSection id="recipes">
             <H3>Rezepte</H3>
@@ -157,6 +162,8 @@ const App = () => (
               produces no resultant pleasure?"
             </p>
           </RecipeSection>
+          <hr />
+
           <AboutSection id="about">
             <H3>Über uns</H3>
             <p>
@@ -178,6 +185,8 @@ const App = () => (
               or else he endures pains to avoid worse pains."
             </p>
           </AboutSection>
+          <hr />
+
           <MexicoSection id="mexico">
             <H3>Mexiko als Reisedestination</H3>
             <p>
