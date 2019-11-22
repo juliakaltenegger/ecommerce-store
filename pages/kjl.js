@@ -5,7 +5,7 @@ import { find } from "lodash";
 import cookie from "js-cookie";
 import nextCookie from "next-cookies";
 import React, { useState } from "react";
-import Nav from "../../components/nav";
+import Nav from "../components/nav";
 import styled from "styled-components";
 
 const allProducts = getAllProducts();
