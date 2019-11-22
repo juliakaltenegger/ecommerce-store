@@ -17,6 +17,9 @@ const SingleProduct = styled.div`
 const Product = props => {
   const router = useRouter();
   const { id } = router.query;
+  if (!id) {
+    return null;
+  }
   const individualProductDetails = find(allProducts, function(
     productProperties,
   ) {
